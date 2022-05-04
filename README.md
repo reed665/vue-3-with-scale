@@ -15,6 +15,11 @@ yarn dev
 yarn build
 ```
 
+### Run built app from dist folder
+```
+yarn preview
+```
+
 ### Run your unit tests
 ```
 yarn test:unit
