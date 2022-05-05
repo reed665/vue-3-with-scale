@@ -47,10 +47,11 @@ const { listData, removeListItem } = useTheList();
           <div>
             <scale-button
               icon-only
-              variant="secondary"
+              variant="ghost"
               @click="removeListItem(index)"
             >
               <scale-icon
+                size="28"
                 name="close-circle"
                 accessibility-title="remove"
               />
