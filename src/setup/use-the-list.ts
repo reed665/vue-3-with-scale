@@ -11,9 +11,9 @@ const listData = ref([]) as Ref<IListItem[]>;
 // eslint-disable-next-line no-plusplus
 for (let i = 0; i < 10; i++) {
   listData.value.push({
-    foo: `foo ${i}`,
-    bar: `bar ${i}`,
-    baz: `baz ${i}`,
+    foo: `foo ${i + 1}`,
+    bar: `bar ${i + 1}`,
+    baz: `baz ${i + 1}`,
   });
 }
 

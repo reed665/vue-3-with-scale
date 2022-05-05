@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AbstractList from './AbstractList.vue';
 import ListItemLayout from './ListItemLayout.vue';
 import { useTheList } from '../setup/use-the-list';
 
@@ -6,30 +7,28 @@ const { listData, removeListItem } = useTheList();
 </script>
 
 <template>
-  <ul class="the-list">
-    <ListItemLayout head>
-      <template #foo>
-        foo
-      </template>
+  <AbstractList :data="listData">
+    <template #head>
+      <ListItemLayout head>
+        <template #foo>
+          foo
+        </template>
 
-      <template #bar>
-        bar
-      </template>
+        <template #bar>
+          bar
+        </template>
 
-      <template #baz>
-        baz
-      </template>
+        <template #baz>
+          baz
+        </template>
 
-      <template #actions>
-        actions
-      </template>
-    </ListItemLayout>
+        <template #actions>
+          actions
+        </template>
+      </ListItemLayout>
+    </template>
 
-    <li
-      v-for="(item, index) of listData"
-      :key="index"
-      class="list-item"
-    >
+    <template #body="{ item, index }">
       <ListItemLayout>
         <template #foo>
           <div>{{ item.foo }}</div>
@@ -48,7 +47,7 @@ const { listData, removeListItem } = useTheList();
             <scale-button
               icon-only
               variant="ghost"
-              @click="removeListItem(index)"
+              @click="removeListItem(index - 1)"
             >
               <scale-icon
                 size="28"
@@ -59,20 +58,6 @@ const { listData, removeListItem } = useTheList();
           </div>
         </template>
       </ListItemLayout>
-    </li>
-  </ul>
+    </template>
+  </AbstractList>
 </template>
-
-<style lang="scss">
-.the-list {
-  padding-left: 0;
-  margin: 24px 0;
-  list-style: none;
-}
-
-.list-item {
-  &:not(:first-child) {
-    margin-top: 8px;
-  }
-}
-</style>
