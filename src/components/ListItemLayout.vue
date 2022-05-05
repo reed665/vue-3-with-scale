@@ -21,7 +21,7 @@ defineProps({
       <slot name="baz" />
     </div>
 
-    <div class="cell">
+    <div class="cell cell-actions">
       <slot name="actions" />
     </div>
   </div>
@@ -43,5 +43,10 @@ defineProps({
   min-width: 0;
   display: flex;
   align-items: center;
+
+  &-actions {
+    flex: 0;
+    flex-basis: 60px;
+  }
 }
 </style>
