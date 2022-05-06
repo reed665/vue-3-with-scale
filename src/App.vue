@@ -1,18 +1,14 @@
 <script setup lang="ts">
+import TheNavigation from './components/TheNavigation.vue';
 import AppIcons from './components/AppIcons.vue';
 </script>
 
 <template>
-  <nav>
-    <router-link to="/">
-      Home
-    </router-link> |
-    <router-link to="/about">
-      About
-    </router-link>
-  </nav>
+  <TheNavigation />
 
-  <router-view />
+  <main>
+    <router-view />
+  </main>
 
   <AppIcons />
 </template>
